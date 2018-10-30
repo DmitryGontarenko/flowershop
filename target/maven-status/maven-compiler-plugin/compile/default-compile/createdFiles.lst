@@ -1,0 +1,6 @@
+com\accenture\flowershop\fe\servlets\LoginServlet.class
+com\accenture\flowershop\be\entity\user\User.class
+com\accenture\flowershop\be\business\user\UserBusinessServiceImpl.class
+com\accenture\flowershop\fe\servlets\FlowerShopCatalogServlet.class
+com\accenture\flowershop\fe\servlets\FlowerServlet.class
+com\accenture\flowershop\be\business\user\UserBusinessService.class
