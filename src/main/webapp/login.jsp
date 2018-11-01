@@ -5,28 +5,33 @@
 
 <html>
 <c:set var="title" scope="request" value="Servlet based Filter Demo"/>
-<c:choose>
-    <c:when test="${username == null}">
+<%--<c:choose>--%>
+    <%--<c:when test="${username == null}">--%>
         <form method="post" role="form">
-            <div class="form-group">
+            <div>
                 <label for="username">Username: </label>
-                <input class="form-control" id="username" type="text" name="username">
+                <input id="username" type="text" name="username">
             </div>
 
-            <div class="form-group">
+            <div>
                 <label for="username">Password: </label>
-                <input id="password" class="form-control" type="password" name="password">
+                <input id="password" type="password" name="password">
             </div>
 
-            <button type="submit" name="submit" class="btn btn-info">Login</button>
+            <button type="submit" name="submit">Login</button>
+            <a href="${pageContext.request.contextPath}/registration">Registration</a>
         </form>
-    </c:when>
-    <c:otherwise>
-        <div class="alert alert-success" tole="alert">
-            <strong>You are signed in ${username}</strong>
-        </div>
-        <a href="${pageContext.request.servletContext.contextPath}/logout">Logout</a>
-    </c:otherwise>
-</c:choose>
+
+        <%--Сообщение об ошибки--%>
+        <p style="color: red;">${errorString}</p>
+
+<%--</c:when>--%>
+    <%--<c:otherwise>--%>
+        <%--<div class="alert alert-success" tole="alert">--%>
+            <%--<strong>You are signed in ${username}</strong>--%>
+        <%--</div>--%>
+        <%--<a href="${pageContext.request.servletContext.contextPath}/logout">Logout</a>--%>
+    <%--</c:otherwise>--%>
+<%--</c:choose>--%>
 </html>
 

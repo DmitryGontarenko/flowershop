@@ -16,8 +16,8 @@
             <c:otherwise>
                 <div class="userInfo">
                     Welcome ${username} <br>
-                    Your discount is: <br>
-                    Your balance is: <br>
+                    <%--Your discount is: <br>--%>
+                    <%--Your balance is: <br>--%>
                 </div>
                 <a href="${pageContext.request.servletContext.contextPath}/logout">Logout</a>
             </c:otherwise>
