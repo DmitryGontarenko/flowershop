@@ -11,10 +11,10 @@
 
 
         <!--Transactions with Spring-->
-    <!--<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" >-->
-        <!--<property name="entityManagerFactory" ref="entityManagerFactory" />-->
-    <!--</bean>-->
-    <!--<tx:annotation-driven/>-->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" >
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+    <tx:annotation-driven/>
 
     <!--JPA with Spring – Data source-->
     <jee:jndi-lookup id="dataSource" jndi-name="jdbc/flowerShopDS"/>

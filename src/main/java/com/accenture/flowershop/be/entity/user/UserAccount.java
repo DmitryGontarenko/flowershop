@@ -1,16 +1,17 @@
 package com.accenture.flowershop.be.entity.user;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
-//@Entity
-//@Table(name = "EMPLOYEES")
-public class UserAccount {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+@Entity
+@Table(name = "UserAccount")
+public class UserAccount implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long ID;
-//    @Column(name = "NAME")
+    @Column(name = "NAME")
     private String name;
-//    @Column(name = "PASSWORD")
+    @Column(name = "PASSWORD")
     private String password;
 
     public UserAccount() {
