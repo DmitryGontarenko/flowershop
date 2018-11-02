@@ -1,18 +1,13 @@
 package com.accenture.flowershop.be.entity.user;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
-
-import javax.persistence.*;
-import java.io.Serializable;
-
-public class User {
+public class UserAccount {
     private String name;
     private String password;
 
-    public User() {
+    public UserAccount() {
     }
 
-    public User(String name, String password) {
+    public UserAccount(String name, String password) {
         this.name = name;
         this.password = password;
     }
@@ -35,7 +30,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "UserAccount{" +
                 "name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 '}';

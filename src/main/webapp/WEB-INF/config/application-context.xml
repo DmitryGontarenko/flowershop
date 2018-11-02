@@ -8,33 +8,32 @@
 
     <context:annotation-config/>
     <context:component-scan base-package="com.accenture.flowershop"/>
-    <bean class="com.accenture.flowershop.fe.servlets.LoginServlet"/>
 
 
-    <!--Transactions with Spring-->
+        <!--Transactions with Spring-->
     <!--<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" >-->
         <!--<property name="entityManagerFactory" ref="entityManagerFactory" />-->
     <!--</bean>-->
     <!--<tx:annotation-driven/>-->
 
     <!--JPA with Spring – Data source-->
-    <!--<jee:jndi-lookup id="dataSource" jndi-name="jdbc/flowerShopDS "/>-->
+    <jee:jndi-lookup id="dataSource" jndi-name="jdbc/flowerShopDS"/>
 
     <!--Database migration automation (Flyway)-->
-    <!--<bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate">-->
-        <!--<property name="dataSource" ref="dataSource"/>-->
-        <!--<property name="locations">-->
-            <!--<array>-->
-                <!--<value>dbscripts</value>-->
-            <!--</array>-->
-        <!--</property>-->
-        <!--<property name="baselineOnMigrate" value="false"/>-->
-        <!--<property name="outOfOrder" value="true"/>-->
-        <!--<property name="sqlMigrationPrefix" value="v"/>-->
-        <!--<property name="sqlMigrationSeparator" value="__"/>-->
-        <!--<property name="placeholderPrefix" value="@{"/>-->
-        <!--<property name="placeholderSuffix" value="}"/>-->
-    <!--</bean>-->
+    <bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="locations">
+            <array>
+                <value>dbscripts</value>
+            </array>
+        </property>
+        <property name="baselineOnMigrate" value="false"/>
+        <property name="outOfOrder" value="true"/>
+        <property name="sqlMigrationPrefix" value="v"/>
+        <property name="sqlMigrationSeparator" value="__"/>
+        <property name="placeholderPrefix" value="@{"/>
+        <property name="placeholderSuffix" value="}"/>
+    </bean>
 
     <!--JPA with Spring - Context-->
     <!--<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"-->
