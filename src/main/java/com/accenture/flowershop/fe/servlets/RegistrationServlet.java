@@ -1,6 +1,13 @@
 package com.accenture.flowershop.fe.servlets;
 
+//import com.accenture.flowershop.be.entity.order.Orders;
+//import com.accenture.flowershop.be.entity.order.OrdersModel;
+import com.accenture.flowershop.be.entity.order.OrdersModel;
+import com.accenture.flowershop.be.entity.user.EmployeesEntity;
 import com.accenture.flowershop.be.entity.user.UserAccount;
+import org.hibernate.Session;
+import org.springframework.beans.factory.annotation.Autowired;
+//import org.h2.engine.Session;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -14,26 +21,28 @@ import java.io.IOException;
 
 @WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
-
-//    public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("dataSource");
-//    public static EntityManager em = emf.createEntityManager();
-    private EntityManager em;
-
-
+//    @Autowired
+//    EmployeesEntity employeesEntity;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String username = request.getParameter("reg_username");
-        String password = request.getParameter("reg_password");
+        String reg_username = request.getParameter("reg_username");
+        String reg_password = request.getParameter("reg_password");
 
-//        UserAccount cust1 = new UserAccount(username, password);
-//        em.getTransaction().begin();
-//        em.persist(cust1);
-//        em.getTransaction().commit();
-        UserAccount cust1 = new UserAccount(username, password);
-        em.getTransaction().begin();
-        em.persist(cust1);
-        em.getTransaction().commit();
+        try (Session session = OrdersModel.getSession())
+        {
+            session.beginTransaction();
+            EmployeesEntity employeesEntity = new EmployeesEntity();
+            employeesEntity.setName(reg_username);
+            employeesEntity.setPassword(reg_password);
+            session.save(employeesEntity);
+            session.getTransaction().commit();
+
+            response.sendRedirect(request.getContextPath() + "/login"); // Если пользователь зарегистрировался, переходит на стр. логина
+
+        } catch (Throwable ex) {
+            ex.printStackTrace();
+        }
 
     }
 

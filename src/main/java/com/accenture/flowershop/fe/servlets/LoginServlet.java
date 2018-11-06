@@ -1,8 +1,12 @@
 package com.accenture.flowershop.fe.servlets;
 
 import com.accenture.flowershop.be.access.UserDao;
+import com.accenture.flowershop.be.entity.user.EmployeesEntity;
 import com.accenture.flowershop.be.entity.user.UserAccount;
+//import org.h2.engine.Session;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
+import com.accenture.flowershop.be.entity.order.OrdersModel;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,19 +35,6 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-//        if("admin".equals(username) && "admin".equals(password))
-//            request.getSession(true).setAttribute("username", username);
-
-//        for (UserAccount item : userDao.getAllUsers()) {
-//            if(item.getName().equals(username) && item.getPassword().equals(password)){
-//                request.getSession(true).setAttribute("username", username);
-//            }
-//            else {
-//                String errorMessage = "Invalid Username or Password";
-//                request.setAttribute("errorString", errorMessage);
-//            }
-//        }
-
         UserAccount userAccount = UserDao.findUser(username, password);
 
         if (userAccount == null) {
@@ -68,6 +59,7 @@ public class LoginServlet extends HttpServlet {
         if (username != null){
             request.setAttribute("username", username);
             response.sendRedirect(request.getContextPath() + "/"); // Если пользователь авторизован, переход на главную
+
         }
 
         getServletContext().getRequestDispatcher("/login.jsp").include(request, response);

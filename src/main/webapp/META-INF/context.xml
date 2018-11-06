@@ -3,7 +3,7 @@
     <Parameter name="AppName" value="cbr-clm"/>
     <Resource name="jdbc/flowerShopDS" auth="Container"
               type="javax.sql.DataSource" driverClassName="org.h2.Driver"
-              url="jdbc:h2:~/flowerShopDS2"
+              url="jdbc:h2:~/flowerShopDS"
               username="sa" password=""
     maxActive="10" maxIdle="3"
     initialSize="1"
