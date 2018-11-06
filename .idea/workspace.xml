@@ -96,7 +96,7 @@
         <counts>
           <entry key="EMPLOYEES" value="18" />
           <entry key="EMPLOYEES_COPY_3_0" value="1" />
-          <entry key="java" value="105" />
+          <entry key="java" value="106" />
           <entry key="jsp" value="55" />
           <entry key="properties" value="1" />
           <entry key="schema_version" value="5" />
@@ -107,7 +107,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Database Element" value="24" />
-          <entry key="JAVA" value="105" />
+          <entry key="JAVA" value="106" />
           <entry key="JSP" value="55" />
           <entry key="Properties" value="1" />
           <entry key="SQL" value="18" />
@@ -121,7 +121,7 @@
           <entry key="java" value="4891" />
           <entry key="jsp" value="2009" />
           <entry key="sql" value="160" />
-          <entry key="txt" value="203" />
+          <entry key="txt" value="221" />
           <entry key="xml" value="634" />
         </counts>
       </usages-collector>
@@ -129,7 +129,7 @@
         <counts>
           <entry key="JAVA" value="4891" />
           <entry key="JSP" value="2009" />
-          <entry key="PLAIN_TEXT" value="217" />
+          <entry key="PLAIN_TEXT" value="235" />
           <entry key="SQL" value="160" />
           <entry key="XML" value="634" />
         </counts>
@@ -141,7 +141,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/config/application-context.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
+            <state relative-caret-position="204">
               <caret line="39" column="27" lean-forward="true" selection-start-line="38" selection-start-column="9" selection-end-line="39" selection-end-column="27" />
               <folding>
                 <marker date="1541491374805" expanded="true" signature="1504:2123" ph="..." />
@@ -459,7 +459,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541492575512" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541492813435" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/clone/flowershop" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -733,7 +733,7 @@
       <workItem from="1541052179332" duration="20732000" />
       <workItem from="1541138810410" duration="12103000" />
       <workItem from="1541160820835" duration="6924000" />
-      <workItem from="1541484459008" duration="8045000" />
+      <workItem from="1541484459008" duration="8320000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1540902130562</created>
@@ -798,11 +798,18 @@
       <option name="project" value="LOCAL" />
       <updated>1541167644845</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="commit: entity and flyway">
+      <created>1541492790541</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1541492790541</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83877000" />
+    <option name="totallyTimeSpent" value="84152000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -815,7 +822,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Persistence" order="0" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4911032" visible="true" weight="0.2242915" />
@@ -829,7 +835,7 @@
       <window_info anchor="bottom" id="Database Console" order="0" weight="0.17259787" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32384342" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.4979757" visible="true" weight="0.32562277" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.4979757" visible="true" weight="0.32562277" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.40252706" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -848,7 +854,7 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.20566802" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.19676113" />
+      <window_info active="true" anchor="right" id="Database" order="6" visible="true" weight="0.19676113" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
@@ -906,7 +912,8 @@
     <MESSAGE value="commit: add context.xml" />
     <MESSAGE value="commit: add config.xml files" />
     <MESSAGE value="commit: update" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit: update" />
+    <MESSAGE value="commit: entity and flyway" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit: entity and flyway" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/resources/conf.properties">
@@ -1088,13 +1095,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/flowershop/be/entity/user/EmployeesEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/flowershop/fe/servlets/LoginServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1119,9 +1119,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/flowershop/be/entity/user/EmployeesEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17">
+          <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/config/application-context.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
+        <state relative-caret-position="204">
           <caret line="39" column="27" lean-forward="true" selection-start-line="38" selection-start-column="9" selection-end-line="39" selection-end-column="27" />
           <folding>
             <marker date="1541491374805" expanded="true" signature="1504:2123" ph="..." />
