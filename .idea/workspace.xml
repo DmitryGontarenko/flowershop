@@ -7,12 +7,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f3ad913-e57b-4a40-a115-a4ea2ee0d5df" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/05da8a19-04e0-4d1e-a19b-66c5836a08b5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/05da8a19-04e0-4d1e-a19b-66c5836a08b5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accenture/flowershop/be/entity/order/OrdersModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/accenture/flowershop/be/entity/user/EmployeesEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dbscripts/v1__employees.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oktflowershop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/oktflowershop.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/accenture/flowershop/fe/servlets/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/accenture/flowershop/fe/servlets/LoginServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/accenture/flowershop/fe/servlets/RegistrationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/accenture/flowershop/fe/servlets/RegistrationServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/META-INF/context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/META-INF/context.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/accenture/flowershop/fe/ws/UserAccount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dbscripts/v1__flowers.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dbscripts/v2__addus.sql" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/accenture/flowershop/be/entity/user/User.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/accenture/flowershop/fe/servlets/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/accenture/flowershop/fe/servlets/LoginServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/dbscripts/v0.1.01_flowers.sql" beforeDir="false" />
@@ -71,6 +74,13 @@
         <item name="FLOWERSHOPDS: database" type="c8e2528e:H2ImplModel$Database" />
         <item name="PUBLIC: schema" type="4f7ca4f5:H2ImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="flowerShopDS" type="feb32156:DbDataSourceImpl" />
+        <item name="FLOWERSHOPDS: database" type="c8e2528e:H2ImplModel$Database" />
+        <item name="PUBLIC: schema" type="4f7ca4f5:H2ImplModel$Schema" />
+        <item name="EMPLOYEES: table" type="e4ce7bd9:H2ImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -78,9 +88,9 @@
     <session id="-1838739081">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="10" />
           <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.21" value="1" />
+          <entry key="project.open.time.21" value="2" />
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.3" value="1" />
@@ -89,49 +99,49 @@
           <entry key="project.open.time.37" value="1" />
           <entry key="project.open.time.4" value="2" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="EMPLOYEES" value="18" />
+          <entry key="EMPLOYEES" value="23" />
           <entry key="EMPLOYEES_COPY_3_0" value="1" />
-          <entry key="java" value="106" />
+          <entry key="java" value="120" />
           <entry key="jsp" value="55" />
           <entry key="properties" value="1" />
           <entry key="schema_version" value="5" />
           <entry key="sql" value="21" />
-          <entry key="xml" value="57" />
+          <entry key="xml" value="61" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Database Element" value="24" />
-          <entry key="JAVA" value="106" />
+          <entry key="Database Element" value="29" />
+          <entry key="JAVA" value="120" />
           <entry key="JSP" value="55" />
           <entry key="Properties" value="1" />
           <entry key="SQL" value="18" />
           <entry key="Scratch" value="3" />
-          <entry key="XML" value="57" />
+          <entry key="XML" value="61" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="14" />
-          <entry key="java" value="4891" />
+          <entry key="java" value="5537" />
           <entry key="jsp" value="2009" />
           <entry key="sql" value="160" />
-          <entry key="txt" value="221" />
-          <entry key="xml" value="634" />
+          <entry key="txt" value="227" />
+          <entry key="xml" value="641" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4891" />
+          <entry key="JAVA" value="5537" />
           <entry key="JSP" value="2009" />
-          <entry key="PLAIN_TEXT" value="235" />
+          <entry key="PLAIN_TEXT" value="241" />
           <entry key="SQL" value="160" />
-          <entry key="XML" value="634" />
+          <entry key="XML" value="641" />
         </counts>
       </usages-collector>
     </session>
@@ -139,34 +149,12 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/config/application-context.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="39" column="27" lean-forward="true" selection-start-line="38" selection-start-column="9" selection-end-line="39" selection-end-column="27" />
-              <folding>
-                <marker date="1541491374805" expanded="true" signature="1504:2123" ph="..." />
-                <marker date="1541491374805" expanded="true" signature="2125:3438" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/META-INF/context.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/flowershop/fe/servlets/RegistrationServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="191">
+              <caret line="56" column="27" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
               <folding>
-                <element signature="e#932#948#0" />
+                <element signature="e#1231#1289#0" />
               </folding>
             </state>
           </provider>
@@ -229,9 +217,10 @@
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/flowershop/be/entity/order/OrdersModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/flowershop/fe/servlets/LoginServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/accenture/flowershop/fe/servlets/RegistrationServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/config/application-context.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/dbscripts/v1__department.sql" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/config/application-context.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/EmployeeAccess.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/accenture/flowershop/fe/servlets/RegistrationServlet.java" />
       </list>
     </option>
   </component>
@@ -273,7 +262,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="204" />
-    <option name="y" value="-29" />
+    <option name="y" value="-30" />
     <option name="width" value="981" />
     <option name="height" value="1032" />
   </component>
@@ -354,17 +343,6 @@
               <item name="flowershop" type="462c0819:PsiDirectoryNode" />
               <item name="be" type="462c0819:PsiDirectoryNode" />
               <item name="entity" type="462c0819:PsiDirectoryNode" />
-              <item name="order" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oktflowershop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oktflowershop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="flowershop" type="462c0819:PsiDirectoryNode" />
-              <item name="be" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -375,16 +353,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="flowershop" type="462c0819:PsiDirectoryNode" />
               <item name="fe" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oktflowershop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oktflowershop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="flowershop" type="462c0819:PsiDirectoryNode" />
-              <item name="fe" type="462c0819:PsiDirectoryNode" />
-              <item name="enums" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="oktflowershop" type="b2602c69:ProjectViewProjectNode" />
@@ -418,31 +386,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="oktflowershop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oktflowershop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oktflowershop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oktflowershop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oktflowershop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oktflowershop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -459,7 +402,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541492813435" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541509333394" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/clone/flowershop" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -494,6 +437,13 @@
     </option>
   </component>
   <component name="RunManager" selected="Maven.Run_tomcat">
+    <configuration name="EmployeeAccess" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="EmployeeAccess" />
+      <module name="oktflowershop" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="oktflowershop" />
@@ -706,9 +656,11 @@
       <item itemvalue="Tomcat Server.tomcat8.0" />
       <item itemvalue="Tomcat Server.run_local_tomcat" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.EmployeeAccess" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.EmployeeAccess" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -733,7 +685,8 @@
       <workItem from="1541052179332" duration="20732000" />
       <workItem from="1541138810410" duration="12103000" />
       <workItem from="1541160820835" duration="6924000" />
-      <workItem from="1541484459008" duration="8320000" />
+      <workItem from="1541484459008" duration="9481000" />
+      <workItem from="1541494099338" duration="8871000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1540902130562</created>
@@ -805,11 +758,18 @@
       <option name="project" value="LOCAL" />
       <updated>1541492790541</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="commit: entity and flyway">
+      <created>1541492905532</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1541492905532</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84152000" />
+    <option name="totallyTimeSpent" value="94184000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -822,9 +782,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Persistence" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4911032" visible="true" weight="0.2242915" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4911032" visible="true" weight="0.22834007" />
       <window_info id="Structure" order="2" sideWeight="0.5047847" side_tool="true" weight="0.21376519" />
       <window_info id="Designer" order="3" />
       <window_info id="Image Layers" order="4" />
@@ -835,8 +796,8 @@
       <window_info anchor="bottom" id="Database Console" order="0" weight="0.17259787" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32384342" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.4979757" visible="true" weight="0.32562277" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.40252706" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.4979757" visible="true" weight="0.2580071" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.37900355" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.3291815" />
@@ -854,7 +815,7 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.20566802" />
-      <window_info active="true" anchor="right" id="Database" order="6" visible="true" weight="0.19676113" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.1659919" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
@@ -999,47 +960,16 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/v3__other.sql" />
-    <entry file="das://05da8a19-04e0-4d1e-a19b-66c5836a08b5/database/FLOWERSHOPDS/schema/PUBLIC/table/EMPLOYEES_COPY_3_0">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://05da8a19-04e0-4d1e-a19b-66c5836a08b5/database/FLOWERSHOPDS/schema/PUBLIC/table/EMPLOYEES_COPY_3_0" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/flowershop/be/entity/user/UserAccount.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-102">
           <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/dbscripts/v2__addus.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="42" lean-forward="true" selection-start-line="1" selection-start-column="42" selection-end-line="1" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/flowershop/fe/ws/UserAccount.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/flowershop/be/access/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/dbscripts/v2__addus.sql" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/flowershop/fe/ws/UserAccount.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/flowershop/be/entity/order/Orders.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1057,34 +987,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-519">
-          <caret line="19" column="2" lean-forward="true" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://05da8a19-04e0-4d1e-a19b-66c5836a08b5/database/FLOWERSHOPDS/schema/PUBLIC/table/EMPLOYEES">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/flowershop/fe/servlets/RegistrationServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="e#932#948#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1095,10 +1001,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/dbscripts/v1__employees.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/flowershop/fe/servlets/LoginServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
+        <state relative-caret-position="102">
           <caret line="42" column="9" lean-forward="true" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/flowershop/be/access/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-132">
+          <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/flowershop/be/entity/user/EmployeesEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://05da8a19-04e0-4d1e-a19b-66c5836a08b5/database/FLOWERSHOPDS/schema/PUBLIC/table/EMPLOYEES">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="19" column="2" lean-forward="true" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EmployeeAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1112,27 +1066,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/dbscripts/v1__employees.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/flowershop/be/entity/user/EmployeesEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/config/application-context.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="39" column="27" lean-forward="true" selection-start-line="38" selection-start-column="9" selection-end-line="39" selection-end-column="27" />
+        <state relative-caret-position="272">
+          <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
           <folding>
-            <marker date="1541491374805" expanded="true" signature="1504:2123" ph="..." />
-            <marker date="1541491374805" expanded="true" signature="2125:3438" ph="..." />
+            <marker date="1541495737837" expanded="true" signature="1453:2072" ph="..." />
+            <marker date="1541495737837" expanded="true" signature="2074:3192" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/flowershop/fe/servlets/RegistrationServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="56" column="27" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
+          <folding>
+            <element signature="e#1231#1289#0" />
           </folding>
         </state>
       </provider>
