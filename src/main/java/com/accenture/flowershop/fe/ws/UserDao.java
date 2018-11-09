@@ -1,4 +1,4 @@
-package com.accenture.flowershop.be.access;
+package com.accenture.flowershop.fe.ws;
 
 import com.accenture.flowershop.be.entity.user.UserAccount;
 import org.springframework.stereotype.Component;

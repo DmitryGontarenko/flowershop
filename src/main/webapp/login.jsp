@@ -25,6 +25,12 @@
         <%--Сообщение об ошибки--%>
         <p style="color: red;">${errorString}</p>
 
+        <c:if test="${error != null}">
+            <div class="my-lg-4 alert alert-danger" role="alert">
+                    ${error}
+            </div>
+        </c:if>
+
 <%--</c:when>--%>
     <%--<c:otherwise>--%>
         <%--<div class="alert alert-success" tole="alert">--%>

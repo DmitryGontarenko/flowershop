@@ -1,19 +1,19 @@
 package com.accenture.flowershop.fe.servlets;
 
-import com.accenture.flowershop.be.access.UserDao;
-import com.accenture.flowershop.be.entity.user.EmployeesEntity;
-import com.accenture.flowershop.be.entity.user.UserAccount;
-//import org.h2.engine.Session;
-import org.hibernate.Session;
-import org.springframework.beans.factory.annotation.Autowired;
-import com.accenture.flowershop.be.entity.order.OrdersModel;
 
+import com.accenture.flowershop.be.business.employees.EmployeesService;
+import com.accenture.flowershop.fe.dto.employees.EmployeesDTO;
+import com.accenture.flowershop.fe.ws.UserException;
+import org.dozer.Mapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
+
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet("/login")
@@ -25,9 +25,16 @@ public class LoginServlet extends HttpServlet {
         super();
     }
 
-//    @Autowired
-//    private UserDao userDao;
-    //UserDao userDao = new UserDao();
+    @Autowired
+    private Mapper mapper;
+
+    @Autowired
+    private EmployeesService employeesService;
+
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext (this);
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -35,34 +42,48 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        UserAccount userAccount = UserDao.findUser(username, password);
+        EmployeesDTO employeesDTO = new EmployeesDTO(username, password);
 
-        if (userAccount == null) {
-            String errorMessage = "Invalid Username or Password";
-            request.setAttribute("errorString", errorMessage);
-        }
-        else {
-            request.getSession(true).setAttribute("username", username);
+        try {
+            employeesDTO = mapper.map(employeesService.login(employeesDTO), EmployeesDTO.class);
+
+        } catch (UserException e) {
+            request.setAttribute("error", e.getMessage());
+            doGet(request, response);
+            return;
         }
 
-        doGet(request, response);
+        //response.sendRedirect(request.getContextPath() + "/");
+
+//        UserAccount userAccount = UserDao.findUser(username, password);
+//
+//        if (userAccount == null) {
+//            String errorMessage = "Invalid Username or Password";
+//            request.setAttribute("errorString", errorMessage);
+//        }
+//        else {
+//            request.getSession(true).setAttribute("username", username);
+//        }
+//
+//        doGet(request, response);
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        request.getRequestDispatcher("/login.jsp").forward(request, response);
 
-        HttpSession session = request.getSession();
-
-        Object username = session.getAttribute("username");
-
-        if (username != null){
-            request.setAttribute("username", username);
-            response.sendRedirect(request.getContextPath() + "/"); // Если пользователь авторизован, переход на главную
-
-        }
-
-        getServletContext().getRequestDispatcher("/login.jsp").include(request, response);
+//        HttpSession session = request.getSession();
+//
+//        Object username = session.getAttribute("username");
+//
+//        if (username != null){
+//            request.setAttribute("username", username);
+//            response.sendRedirect(request.getContextPath() + "/"); // Если пользователь авторизован, переход на главную
+//
+//        }
+//
+        //getServletContext().getRequestDispatcher("/login.jsp").include(request, response);
 
     }
 }

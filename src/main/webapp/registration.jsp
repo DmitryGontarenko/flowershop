@@ -17,5 +17,8 @@
             <button type="submit" name="submit">Registration</button>
         </form>
 
+        <%--Сообщение об ошибки--%>
+        <p style="color: red;">${errorString}</p>
+
     </body>
 </html>

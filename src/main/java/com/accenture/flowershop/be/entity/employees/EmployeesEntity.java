@@ -1,18 +1,24 @@
-package com.accenture.flowershop.be.entity.user;
+package com.accenture.flowershop.be.entity.employees;
 
 import javax.persistence.*;
 
 @Entity
+@NamedQuery(name = "findEmployeesById", query = "select c from EmployeesEntity c where c.name = :n")
 @Table(name = "EMPLOYEES", schema = "PUBLIC", catalog = "FLOWERSHOPDS")
 public class EmployeesEntity {
-
-    private Long id;
-    private String name;
-    private String password;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "ID")
+    private Long id;
+    @Basic
+    @Column(name = "NAME")
+    private String name;
+    @Basic
+    @Column(name = "PASSWORD")
+    private String password;
+
+
     public Long getId() {
         return id;
     }
@@ -21,8 +27,7 @@ public class EmployeesEntity {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "NAME")
+
     public String getName() {
         return name;
     }
@@ -31,8 +36,7 @@ public class EmployeesEntity {
         this.name = name;
     }
 
-    @Basic
-    @Column(name = "PASSWORD")
+
     public String getPassword() {
         return password;
     }
