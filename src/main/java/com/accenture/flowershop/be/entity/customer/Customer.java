@@ -1,39 +1,67 @@
-package com.accenture.flowershop.fe.dto.customer;
+package com.accenture.flowershop.be.entity.customer;
 
+import com.accenture.flowershop.be.entity.user.User;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
 
-public class CustomerDTO {
+@Entity
+@Table(name = "tb_customer")
+@NamedQueries({
+        @NamedQuery(name = "Customer.findAll", query = "SELECT c FROM Customer c"),
+        @NamedQuery(name = "Customer.findById", query = "SELECT c FROM Customer c WHERE c.id = :id")
+})
+public class Customer {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(name = "first_name")
     private String firstName;
+
+    @Column(name = "last_name")
     private String lastName;
+
+    @Column(name = "balance", precision = 8, scale = 2)
     private BigDecimal balance;
+
+    @Column(name = "discount")
     private int discount;
+
+    @Column(name = "phone_number")
     private String phoneNumber;
+
+    @Column(name = "street")
     private String street;
+
+    @Column(name = "city")
     private String city;
+
+    @Column(name = "country")
     private String country;
 
-    public CustomerDTO() {
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public Customer() {
     }
 
-    public CustomerDTO(String firstName, String lastName) {
+    public Customer(String firstName, String lastName, BigDecimal balance, int discount) {
         this.firstName = firstName;
         this.lastName = lastName;
-    }
-
-    public CustomerDTO(String firstName, String lastName, BigDecimal balance, int discount) {
-        this(firstName, lastName);
         this.balance = balance;
         this.discount = discount;
     }
 
-    public CustomerDTO(long id, String firstName, String lastName, BigDecimal balance, int discount, String phoneNumber, String street, String city, String country) {
+    public Customer(String firstName, String lastName, BigDecimal balance, int discount, String phoneNumber, String street, String city, String country, User user) {
         this(firstName, lastName, balance, discount);
-        this.id = id;
         this.phoneNumber = phoneNumber;
         this.street = street;
         this.city = city;
         this.country = country;
+        this.user = user;
     }
 
     public long getId() {
@@ -106,5 +134,29 @@ public class CustomerDTO {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", balance=" + balance +
+                ", discount=" + discount +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", street='" + street + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                ", user=" + user +
+                '}';
     }
 }

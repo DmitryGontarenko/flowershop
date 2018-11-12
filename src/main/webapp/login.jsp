@@ -5,8 +5,7 @@
 
 <html>
 <c:set var="title" scope="request" value="Servlet based Filter Demo"/>
-<%--<c:choose>--%>
-    <%--<c:when test="${username == null}">--%>
+
         <form method="post" role="form">
             <div>
                 <label for="username">Username: </label>
@@ -19,25 +18,15 @@
             </div>
 
             <button type="submit" name="submit">Login</button>
-            <a href="${pageContext.request.contextPath}/registration">Registration</a>
+            <a href="/registration">Registration</a>
         </form>
 
-        <%--Сообщение об ошибки--%>
-        <p style="color: red;">${errorString}</p>
-
+<%--Выводит сообщение об ошибки в случае неверного ввода логина или пароля--%>
         <c:if test="${error != null}">
-            <div class="my-lg-4 alert alert-danger" role="alert">
+            <div class = "alert">
                     ${error}
             </div>
         </c:if>
 
-<%--</c:when>--%>
-    <%--<c:otherwise>--%>
-        <%--<div class="alert alert-success" tole="alert">--%>
-            <%--<strong>You are signed in ${username}</strong>--%>
-        <%--</div>--%>
-        <%--<a href="${pageContext.request.servletContext.contextPath}/logout">Logout</a>--%>
-    <%--</c:otherwise>--%>
-<%--</c:choose>--%>
 </html>
 

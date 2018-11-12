@@ -15,4 +15,10 @@ public interface UserDAO {
     // возвращает конкретный экземпляр User по username
     User findByUsername(String username);
 
+    Long save(User user);
+
+    void update(User user);
+
+    void delete(long userId);
+
 }

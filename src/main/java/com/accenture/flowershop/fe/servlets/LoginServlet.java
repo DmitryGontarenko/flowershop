@@ -1,9 +1,9 @@
 package com.accenture.flowershop.fe.servlets;
 
+import com.accenture.flowershop.be.business.user.UserService;
+import com.accenture.flowershop.fe.dto.user.UserDTO;
+import com.accenture.flowershop.be.business.exeptions.UserException;
 
-import com.accenture.flowershop.be.business.employees.EmployeesService;
-import com.accenture.flowershop.fe.dto.employees.EmployeesDTO;
-import com.accenture.flowershop.fe.ws.UserException;
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
     private Mapper mapper;
 
     @Autowired
-    private EmployeesService employeesService;
+    private UserService userService;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -42,48 +42,25 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        EmployeesDTO employeesDTO = new EmployeesDTO(username, password);
+        UserDTO userDTO = new UserDTO(username, password);
 
         try {
-            employeesDTO = mapper.map(employeesService.login(employeesDTO), EmployeesDTO.class);
-
-        } catch (UserException e) {
-            request.setAttribute("error", e.getMessage());
+            userDTO = mapper.map(userService.login(userDTO), UserDTO.class);
+        } catch (UserException ex) {
+            request.setAttribute("error", ex.getMessage());
             doGet(request, response);
             return;
         }
 
-        //response.sendRedirect(request.getContextPath() + "/");
+        userService.setUserSession(request.getSession(), userDTO);
+        response.sendRedirect("/");
 
-//        UserAccount userAccount = UserDao.findUser(username, password);
-//
-//        if (userAccount == null) {
-//            String errorMessage = "Invalid Username or Password";
-//            request.setAttribute("errorString", errorMessage);
-//        }
-//        else {
-//            request.getSession(true).setAttribute("username", username);
-//        }
-//
-//        doGet(request, response);
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.getRequestDispatcher("/login.jsp").forward(request, response);
-
-//        HttpSession session = request.getSession();
-//
-//        Object username = session.getAttribute("username");
-//
-//        if (username != null){
-//            request.setAttribute("username", username);
-//            response.sendRedirect(request.getContextPath() + "/"); // Если пользователь авторизован, переход на главную
-//
-//        }
-//
-        //getServletContext().getRequestDispatcher("/login.jsp").include(request, response);
 
     }
 }

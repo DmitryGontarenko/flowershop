@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS tb_user (
+  id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  username VARCHAR(255),
+  password VARCHAR(255),
+  role SMALLINT DEFAULT 2,
+  created_at TIMESTAMP,
+  updated_at TIMESTAMP
+);

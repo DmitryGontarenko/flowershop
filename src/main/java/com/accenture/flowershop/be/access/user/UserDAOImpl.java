@@ -10,7 +10,7 @@ import javax.persistence.TypedQuery;
 import java.util.Collections;
 import java.util.List;
 
-@Repository("userDAO")
+@Repository("UserDAO")
 public class UserDAOImpl implements UserDAO {
 
     @PersistenceContext
@@ -37,7 +37,8 @@ public class UserDAOImpl implements UserDAO {
         User user = null;
 
         try {
-            TypedQuery<User> query = entityManager.createNamedQuery("User.findById", User.class).setParameter("id", userId);
+            TypedQuery<User> query = entityManager.createNamedQuery("User.findById", User.class)
+                    .setParameter("id", userId);
             user = query.getSingleResult();
             // getSingleResult - предназначен для получения единственного результата
         } catch (NoResultException ex) {
@@ -55,9 +56,25 @@ public class UserDAOImpl implements UserDAO {
             TypedQuery<User> query  = entityManager.createNamedQuery("User.findByUsername", User.class)
                     .setParameter("username", username);
             user = query.getSingleResult();
-        } catch (NoResultException nr) {
+        } catch (NoResultException ex) {
 
         }
         return user;
+    }
+
+    @Override
+    public Long save(User user) {
+        entityManager.persist(user);
+        return user.getId();
+    }
+
+    @Override
+    public void update(User user) {
+//        entityManager.merge(user);
+    }
+
+    @Override
+    public void delete(long userId) {
+
     }
 }

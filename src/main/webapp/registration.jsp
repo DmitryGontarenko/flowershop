@@ -12,13 +12,21 @@
         <h1>Registration users</h1>
 
         <form method="post" role="form">
-            <input id="reg_username" type="text" name="reg_username">
-            <input id="reg_password" type="password" name="reg_password">
-            <button type="submit" name="submit">Registration</button>
+            <input id="firstName" type="text" name="firstName" placeholder="Enter your name"/>
+            <input id="lastName" type="text" name="lastName" placeholder="Enter your second name"/>
+            <input id="username" type="text" name="username" placeholder="Enter your login"/>
+            <input id="password" type="password" name="password" placeholder="Enter your password"/>
+
+            <button type="submit" name="submit">Confirm</button>
         </form>
 
-        <%--Сообщение об ошибки--%>
-        <p style="color: red;">${errorString}</p>
+        <%--Сообщение об ошибки в случае неудачной регистрации--%>
+        <c:if test = "&{error != null}">
+            <div class = "alert">
+                ${error}
+            </div>
+        </c:if>
+
 
     </body>
 </html>

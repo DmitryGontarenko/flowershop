@@ -1,4 +1,4 @@
-package com.accenture.flowershop.fe.ws;
+package com.accenture.flowershop.be.business.exeptions;
 
 public class UserException extends Throwable {
 
