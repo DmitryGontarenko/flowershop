@@ -1,6 +1,8 @@
-package com.accenture.flowershop.be.business.user;
+package com.accenture.flowershop.be.business.user.implement;
 
 import com.accenture.flowershop.be.access.user.UserDAO;
+import com.accenture.flowershop.be.business.user.interfaces.UserMarshallingService;
+import com.accenture.flowershop.be.business.user.interfaces.UserService;
 import com.accenture.flowershop.be.entity.customer.Customer;
 import com.accenture.flowershop.be.entity.user.User;
 import com.accenture.flowershop.fe.dto.user.UserDTO;
@@ -11,12 +13,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import sun.misc.IOUtils;
 
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 
 @Service("UserService")
 public class UserServiceImpl implements UserService {
@@ -28,6 +35,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private Mapper mapper;
+
+    @Autowired
+    private UserMarshallingService userMarshallingService;
 
     @Override
     public List<User> findAllUsers() {
@@ -93,7 +103,7 @@ public class UserServiceImpl implements UserService {
         customer.setUser(user);
 
         user = saveUser(user);
-
+        UserXML(user);
         log.debug("User with id = {}, username = {} was registered",
                 user.getId(), user.getUsername());
 
@@ -103,5 +113,28 @@ public class UserServiceImpl implements UserService {
     @Override
     public void setUserSession(HttpSession session, UserDTO userDTO) {
         session.setAttribute("user", userDTO);
+    }
+
+    @Override
+    public void UserXML(User user) {
+        try {
+            // load properties
+            Properties properties = new Properties();
+            InputStream propertyUnputStream =
+                    getClass().getClassLoader().getResourceAsStream("conf.properties");
+            properties.load(propertyUnputStream);
+
+            // create xml file
+            userMarshallingService.convertFromUserToXML(user, properties.getProperty("user.xml.path"));
+
+            // read xml file and send
+            FileInputStream xmlInputStream = new FileInputStream(properties.getProperty("user.xml.path"));
+
+            // close connection
+            propertyUnputStream.close();
+            xmlInputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

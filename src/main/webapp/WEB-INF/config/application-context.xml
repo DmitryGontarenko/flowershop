@@ -77,4 +77,12 @@
 
     <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
 
+    <bean id="XMLConverter" class="org.springframework.oxm.castor.CastorMarshaller">
+        <property name="targetClasses">
+            <list>
+                <value>com.accenture.flowershop.be.business.user.implement.UserMarshallingServiceImpl</value>
+            </list>
+        </property>
+    </bean>
+
 </beans>

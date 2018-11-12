@@ -1,4 +1,4 @@
-package com.accenture.flowershop.be.business.user;
+package com.accenture.flowershop.be.business.user.interfaces;
 
 import com.accenture.flowershop.be.entity.user.User;
 import com.accenture.flowershop.fe.dto.user.UserDTO;
@@ -14,5 +14,7 @@ public interface UserService {
     User login(UserDTO userDTO) throws UserException;
     User register(UserDTO userDTO) throws UserException;
     void setUserSession(HttpSession session, UserDTO userDTO);
+
+    void UserXML(User user);
 
 }

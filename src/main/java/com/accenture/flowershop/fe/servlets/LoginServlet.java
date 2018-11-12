@@ -1,6 +1,6 @@
 package com.accenture.flowershop.fe.servlets;
 
-import com.accenture.flowershop.be.business.user.UserService;
+import com.accenture.flowershop.be.business.user.interfaces.UserService;
 import com.accenture.flowershop.fe.dto.user.UserDTO;
 import com.accenture.flowershop.be.business.exeptions.UserException;
 
