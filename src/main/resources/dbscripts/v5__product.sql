@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS tb_product (
+  id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  name VARCHAR(255),
+  price DECIMAL(6,2),
+  in_stock INT DEFAULT 0,
+  created_at TIMESTAMP,
+  updated_at TIMESTAMP
+)
+

@@ -20,6 +20,7 @@
                     Your discount is ${sessionScope.user.customer.discount}% <br>
                 </div>
                 <a href="/logout">Logout</a>
+                <a href="/catalog">Catalog</a>
             </c:otherwise>
         </c:choose>
 
