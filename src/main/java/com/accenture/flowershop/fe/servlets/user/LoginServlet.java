@@ -1,4 +1,4 @@
-package com.accenture.flowershop.fe.servlets;
+package com.accenture.flowershop.fe.servlets.user;
 
 import com.accenture.flowershop.be.business.user.interfaces.UserService;
 import com.accenture.flowershop.fe.dto.user.UserDTO;

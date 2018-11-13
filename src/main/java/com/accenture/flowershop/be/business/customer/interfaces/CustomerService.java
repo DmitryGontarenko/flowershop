@@ -1,4 +1,4 @@
-package com.accenture.flowershop.be.business.customer;
+package com.accenture.flowershop.be.business.customer.interfaces;
 
 import com.accenture.flowershop.be.entity.customer.Customer;
 

@@ -44,7 +44,7 @@
 
   <!--<servlet>-->
     <!--<servlet-name>RegistrationServlet</servlet-name>-->
-    <!--<servlet-class>com.accenture.flowershop.fe.servlets.RegistrationServlet</servlet-class>-->
+    <!--<servlet-class>com.accenture.flowershop.fe.servlets.user.RegistrationServlet</servlet-class>-->
   <!--</servlet>-->
 
   <!--<servlet-mapping>-->

@@ -103,7 +103,7 @@ public class UserServiceImpl implements UserService {
         customer.setUser(user);
 
         user = saveUser(user);
-        UserXML(user);
+        UserXML(user); // XML Conventer
         log.debug("User with id = {}, username = {} was registered",
                 user.getId(), user.getUsername());
 
@@ -120,18 +120,18 @@ public class UserServiceImpl implements UserService {
         try {
             // load properties
             Properties properties = new Properties();
-            InputStream propertyUnputStream =
+            InputStream propertyInputStream =
                     getClass().getClassLoader().getResourceAsStream("conf.properties");
-            properties.load(propertyUnputStream);
+            properties.load(propertyInputStream);
 
             // create xml file
             userMarshallingService.convertFromUserToXML(user, properties.getProperty("user.xml.path"));
 
             // read xml file and send
             FileInputStream xmlInputStream = new FileInputStream(properties.getProperty("user.xml.path"));
-
+            // jms
             // close connection
-            propertyUnputStream.close();
+            propertyInputStream.close();
             xmlInputStream.close();
         } catch (IOException e) {
             e.printStackTrace();

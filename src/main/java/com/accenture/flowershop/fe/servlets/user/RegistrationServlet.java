@@ -1,4 +1,4 @@
-package com.accenture.flowershop.fe.servlets;
+package com.accenture.flowershop.fe.servlets.user;
 
 
 import com.accenture.flowershop.be.business.user.interfaces.UserService;
@@ -59,7 +59,7 @@ public class RegistrationServlet extends HttpServlet {
 
         // Если ошибки не было, открываем сессию пользователю и переводим на главную страницу
         userService.setUserSession(request.getSession(), userDTO);
-        response.sendRedirect("/");
+        response.sendRedirect("/login");
     }
 
 }
