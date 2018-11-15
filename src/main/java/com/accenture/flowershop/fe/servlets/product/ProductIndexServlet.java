@@ -1,6 +1,7 @@
 package com.accenture.flowershop.fe.servlets.product;
 
 import com.accenture.flowershop.be.business.product.interfaces.ProductService;
+import com.accenture.flowershop.be.business.product.search.ProductSearch;
 import com.accenture.flowershop.be.entity.product.Product;
 import com.accenture.flowershop.fe.dto.product.ProductDTO;
 import org.dozer.Mapper;
@@ -32,7 +33,6 @@ public class ProductIndexServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         List<ProductDTO> productDTOS = null;
 
         productDTOS = productService.findAllProduct().stream().map(product -> mapper.map(product, ProductDTO.class)).collect(Collectors.toList());

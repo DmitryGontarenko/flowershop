@@ -6,7 +6,7 @@
 </head>
 <body>
     <form method="get" action="/catalog">
-        <input type="text" name="productname" id="productname" value="${searchProductName}" placeholder="Enter flower name">
+        <input type="text" name="productname" id="productname" value="${productname}" placeholder="Enter flower name">
         <button type="submit">Поиск</button>
     </form>
 

@@ -1,7 +1,7 @@
 package com.accenture.flowershop.fe.dto.user;
 
 import com.accenture.flowershop.fe.dto.customer.CustomerDTO;
-import com.accenture.flowershop.fe.enums.UserRole;
+import com.accenture.flowershop.fe.enums.user.UserRole;
 
 import java.util.Date;
 

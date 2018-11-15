@@ -21,6 +21,8 @@
                 </div>
                 <a href="/logout">Logout</a>
                 <a href="/catalog">Catalog</a>
+                <a href="/cart">Cart</a>
+                <a href="/order">Order</a>
             </c:otherwise>
         </c:choose>
 

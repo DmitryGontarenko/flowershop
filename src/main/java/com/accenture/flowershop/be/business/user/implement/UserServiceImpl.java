@@ -6,7 +6,7 @@ import com.accenture.flowershop.be.business.user.interfaces.UserService;
 import com.accenture.flowershop.be.entity.customer.Customer;
 import com.accenture.flowershop.be.entity.user.User;
 import com.accenture.flowershop.fe.dto.user.UserDTO;
-import com.accenture.flowershop.fe.enums.UserRole;
+import com.accenture.flowershop.fe.enums.user.UserRole;
 import com.accenture.flowershop.be.business.exeptions.UserException;
 import org.dozer.Mapper;
 import org.slf4j.Logger;
