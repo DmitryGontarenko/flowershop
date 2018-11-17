@@ -34,6 +34,11 @@
 
     <!--JPA with Spring – Data source-->
     <jee:jndi-lookup id="dataSource" jndi-name="jdbc/flowerShopDS"/>
+    <!--JMS-->
+    <jee:jndi-lookup id="connectionFactory" jndi-name="jms/connectionFactory"/>
+    <jee:jndi-lookup id="outQueue" jndi-name="jms/outQueue"/>
+    <jee:jndi-lookup id="inQueue" jndi-name="jms/inQueue"/>
+
 
     <!--Database migration automation (Flyway)-->
     <bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate">
@@ -84,7 +89,8 @@
     <bean id="XMLConverter" class="org.springframework.oxm.castor.CastorMarshaller">
         <property name="targetClasses">
             <list>
-                <value>com.accenture.flowershop.be.business.user.implement.UserMarshallingServiceImpl</value>
+                <!--<value>com.accenture.flowershop.be.business.user.implement.UserMarshallingServiceImpl</value>-->
+                <value>com.accenture.flowershop.be.business.customer.implement.CustomerDiscount</value>
             </list>
         </property>
     </bean>

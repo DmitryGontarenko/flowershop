@@ -1,6 +1,7 @@
 package com.accenture.flowershop.be.business.user.implement;
 
 import com.accenture.flowershop.be.access.user.UserDAO;
+import com.accenture.flowershop.be.business.messages.JmsService;
 import com.accenture.flowershop.be.business.user.interfaces.UserMarshallingService;
 import com.accenture.flowershop.be.business.user.interfaces.UserService;
 import com.accenture.flowershop.be.entity.customer.Customer;
@@ -8,6 +9,7 @@ import com.accenture.flowershop.be.entity.user.User;
 import com.accenture.flowershop.fe.dto.user.UserDTO;
 import com.accenture.flowershop.fe.enums.user.UserRole;
 import com.accenture.flowershop.be.business.exeptions.UserException;
+import org.apache.cxf.helpers.IOUtils;
 import org.dozer.Mapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,6 +39,8 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMarshallingService userMarshallingService;
+
+    private JmsService jmsService;
 
     @Override
     public List<User> findAllUsers() {
@@ -126,9 +130,13 @@ public class UserServiceImpl implements UserService {
             // create xml file
             userMarshallingService.convertFromUserToXML(user, properties.getProperty("user.xml.path"));
 
+            // TODO: jms
             // read xml file and send
             FileInputStream xmlInputStream = new FileInputStream(properties.getProperty("user.xml.path"));
-            // jms
+//            String message = IOUtils.toString(xmlInputStream, "UTF-8");
+//            jmsService.sentMessage(message);
+
+
             // close connection
             propertyInputStream.close();
             xmlInputStream.close();
