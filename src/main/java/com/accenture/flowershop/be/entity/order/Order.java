@@ -1,11 +1,14 @@
 package com.accenture.flowershop.be.entity.order;
 
 import com.accenture.flowershop.be.entity.customer.Customer;
+import com.accenture.flowershop.be.entity.orderproduct.OrderProduct;
+import com.accenture.flowershop.be.entity.product.Product;
 import com.accenture.flowershop.fe.enums.order.OrderStatus;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_order")
@@ -37,6 +40,17 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
+
+    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<OrderProduct> orderProducts;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "tb_order_product",
+            joinColumns = { @JoinColumn(name = "order_id") },
+            inverseJoinColumns = { @JoinColumn(name = "product_id") }
+    )
+    private List<Product> products;
 
     public Order() {
     }
@@ -97,6 +111,22 @@ public class Order {
         this.customer = customer;
     }
 
+    public List<OrderProduct> getOrderProducts() {
+        return orderProducts;
+    }
+
+    public void setOrderProducts(List<OrderProduct> orderProducts) {
+        this.orderProducts = orderProducts;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
@@ -109,3 +139,4 @@ public class Order {
                 '}';
     }
 }
+

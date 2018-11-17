@@ -1,5 +1,7 @@
 package com.accenture.flowershop.fe.dto.customer;
 
+import com.accenture.flowershop.be.business.cart.Cart;
+
 import java.math.BigDecimal;
 
 public class CustomerDTO {
@@ -12,6 +14,7 @@ public class CustomerDTO {
     private String street;
     private String city;
     private String country;
+    private Cart cart;
 
     public CustomerDTO() {
     }
@@ -106,5 +109,13 @@ public class CustomerDTO {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 }

@@ -7,25 +7,28 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registration</title>
+
+        <script src="js/username.js"></script>
     </head>
     <body>
         <h1>Registration users</h1>
 
-        <form method="post" role="form">
+        <form method="post" role="form" id="registerForm">
             <input id="firstName" type="text" name="firstName" placeholder="Enter your name"/>
             <input id="lastName" type="text" name="lastName" placeholder="Enter your second name"/>
             <input id="username" type="text" name="username" placeholder="Enter your login"/>
             <input id="password" type="password" name="password" placeholder="Enter your password"/>
 
-            <button type="submit" name="submit">Confirm</button>
+            <button type="submit">Confirm</button>
         </form>
 
         <%--Сообщение об ошибки в случае неудачной регистрации--%>
-        <c:if test = "&{error != null}">
-            <div class = "alert">
+        <%--<c:if test = "${error != null}">--%>
+            <div class="alert alert-danger" id="registerErrors" role="alert">
                 ${error}
+                d
             </div>
-        </c:if>
+        <%--</c:if>--%>
 
 
     </body>
