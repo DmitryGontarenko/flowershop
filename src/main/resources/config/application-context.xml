@@ -4,6 +4,7 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:jee="http://www.springframework.org/schema/jee"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 
        http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -12,7 +13,9 @@
        http://www.springframework.org/schema/jee
        http://www.springframework.org/schema/jee/spring-jee.xsd
        http://www.springframework.org/schema/tx
-       http://www.springframework.org/schema/tx/spring-tx.xsd">
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://cxf.apache.org/jaxws
+       http://cxf.apache.org/schemas/jaxws.xsd">
 
     <context:component-scan base-package="com.accenture.flowershop" />
 
@@ -77,6 +80,7 @@
 
     <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
 
+    <!--XML Converter-->
     <bean id="XMLConverter" class="org.springframework.oxm.castor.CastorMarshaller">
         <property name="targetClasses">
             <list>
@@ -84,5 +88,16 @@
             </list>
         </property>
     </bean>
+
+    <!--JAX-WS Web Services-->
+    <import resource="classpath:META-INF/cxf/cxf.xml" />
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+    <jaxws:endpoint id="productStockWebService1" implementor="#ProductStockWebService"
+                    address="/ProductStockWebService"/>
+
+    <jaxws:client id="ProductStockWebServiceClient"
+                  serviceClass="com.accenture.flowershop.fe.ws.ProductStockWebService"
+                  address="http://localhost:8080/ws/ProductStockWebService" />
 
 </beans>
