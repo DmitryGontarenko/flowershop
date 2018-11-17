@@ -8,10 +8,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registration</title>
 
-        <script src="js/username.js"></script>
+        <script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
+
+
     </head>
     <body>
         <h1>Registration users</h1>
+        <script src="js/username.js"></script>
 
         <form method="post" role="form" id="registerForm">
             <input id="firstName" type="text" name="firstName" placeholder="Enter your name"/>
@@ -23,12 +26,11 @@
         </form>
 
         <%--Сообщение об ошибки в случае неудачной регистрации--%>
-        <%--<c:if test = "${error != null}">--%>
+        <c:if test = "${error != null}">
             <div class="alert alert-danger" id="registerErrors" role="alert">
                 ${error}
-                d
             </div>
-        <%--</c:if>--%>
+        </c:if>
 
 
     </body>
