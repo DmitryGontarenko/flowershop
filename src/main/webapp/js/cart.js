@@ -35,7 +35,7 @@ $(document).ready(function () {
         }
     }
 
-    // показывает содержимое корзины
+    // показывает содержимое корзины 
     function shopMiniCart() {
         var out = '';
         for (var w in cart) {
