@@ -1,6 +1,7 @@
 package com.accenture.flowershop.be.business.user.implement;
 
 import com.accenture.flowershop.be.access.user.UserDAO;
+import com.accenture.flowershop.be.business.cart.Cart;
 import com.accenture.flowershop.be.business.messages.JmsService;
 import com.accenture.flowershop.be.business.user.interfaces.UserMarshallingService;
 import com.accenture.flowershop.be.business.user.interfaces.UserService;
@@ -115,6 +116,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void setUserSession(HttpSession session, UserDTO userDTO) {
+        int customerDiscount = userDTO.getCustomer().getDiscount();
+        userDTO.getCustomer().setCart(new Cart(customerDiscount));
         session.setAttribute("user", userDTO);
     }
 

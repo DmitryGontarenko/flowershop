@@ -43,7 +43,7 @@ public class CartServlet extends HttpServlet {
                     request.getParameter("street"), request.getParameter("country"),
                     userDTO.getCustomer().getCart());
 
-            // Создаем нвоый заказ
+            // Создаем новый заказ
             OrderDTO orderDTO = null;
             try {
                 orderDTO = mapper.map(orderService.createOrder(orderFormDTO), OrderDTO.class);
@@ -53,8 +53,8 @@ public class CartServlet extends HttpServlet {
                 return;
             }
 
-//            userDTO.getCustomer().getCart().removeAllItem();
-//            response.sendRedirect("/order?id=" + orderDTO.getId());
+            userDTO.getCustomer().getCart().removeAllItem();
+            response.sendRedirect("/order?id=" + orderDTO.getId());
 
         } else {
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED); //401

@@ -2,21 +2,23 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Title</title>
+
+
 </head>
 <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/order.js"></script>
 
-    <%--<c:if test="${sessionScope.user.customer.cart != null}">--%>
-        <%--Корзина: &nbsp;--%>
-        <%--Количество: ${sessionScope.user.customer.cart.itemCount} &nbsp;--%>
-        <%--Цена: ${sessionScope.user.customer.cart.total} &nbsp;--%>
-        <%--<a href="/cart">Корзина</a>--%>
-    <%--</c:if>--%>
+    Корзина:
+    Количество: <span class ="cart-quantity">${sessionScope.user.customer.cart.itemCount} </span>
+    Цена: <span class="cart-total">${sessionScope.user.customer.cart.total} рублей. </span>
+    <a href="/cart">Перейти в корзину</a>
 
-    <%--<form method="get" action="/catalog">--%>
-        <%--<input type="text" name="productname" id="productname" value="${productname}" placeholder="Enter flower name">--%>
-        <%--<button type="submit">Поиск</button>--%>
-    <%--</form>--%>
+    <div id="mini-cart">
+
+    </div>
 
     <c:forEach var="product" items="${productlist}">
         <table border="1">
@@ -26,9 +28,10 @@
                 <td>В наличии: ${product.inStock}</td>
             </tr>
         </table>
-        <%--<form method="post" action="/catalog">--%>
-            <%--<button type="submit">Добавить в корзину</button>--%>
-        <%--</form>--%>
+        <button class="add-to-cart" role="addCartItem" data-id="${product.id}">Добавить в корзину</button>
     </c:forEach>
+
+
+
 </body>
 </html>

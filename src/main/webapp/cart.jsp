@@ -5,6 +5,11 @@
     <title>Title</title>
 </head>
 <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/cart.js"></script>
+
+    <div id="my-cart"></div>
+
     <h3>Cart</h3>
     <c:forEach var="cartItem" items="${sessionScope.user.customer.cart.itemList}">
         <table border="1">
