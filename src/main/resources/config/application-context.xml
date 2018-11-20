@@ -18,7 +18,6 @@
        http://cxf.apache.org/schemas/jaxws.xsd">
 
     <context:component-scan base-package="com.accenture.flowershop" />
-
     <context:annotation-config/>
 
     <bean id="org.dozer.Mapper" class="org.dozer.DozerBeanMapper" />
@@ -38,6 +37,10 @@
     <jee:jndi-lookup id="connectionFactory" jndi-name="jms/connectionFactory"/>
     <jee:jndi-lookup id="outQueue" jndi-name="jms/outQueue"/>
     <jee:jndi-lookup id="inQueue" jndi-name="jms/inQueue"/>
+
+    <!--<jee:jndi-lookup id="connectionFactory" jndi-name="jms/connectionFactory"/>-->
+    <!--<jee:jndi-lookup id="esbToMcpRequestQueue" jndi-name="jms/queue/mainQueue"/>-->
+
 
 
     <!--Database migration automation (Flyway)-->

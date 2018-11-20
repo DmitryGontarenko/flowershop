@@ -3,7 +3,6 @@ package com.accenture.flowershop.be.business.messages;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.jms.*;
@@ -15,7 +14,7 @@ public class JmsServiceImpl implements JmsService {
     private ApplicationContext context;
 
     @Autowired
-    private ConnectionFactory connectionFactory;
+    private ConnectionFactory connectionFactory; // ошибки нет
 
     @Autowired
     private JmsConsumerMessageListener jmsConsumerMessageListener;

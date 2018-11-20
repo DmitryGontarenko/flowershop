@@ -41,6 +41,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMarshallingService userMarshallingService;
 
+    @Autowired
     private JmsService jmsService;
 
     @Override
@@ -133,11 +134,10 @@ public class UserServiceImpl implements UserService {
             // create xml file
             userMarshallingService.convertFromUserToXML(user, properties.getProperty("user.xml.path"));
 
-            // TODO: jms
-            // read xml file and send
+            // Отправка сообщений (JMS)
             FileInputStream xmlInputStream = new FileInputStream(properties.getProperty("user.xml.path"));
-//            String message = IOUtils.toString(xmlInputStream, "UTF-8");
-//            jmsService.sentMessage(message);
+            String message = IOUtils.toString(xmlInputStream, "UTF-8");
+            jmsService.sentMessage(message);
 
 
             // close connection
