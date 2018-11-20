@@ -34,8 +34,8 @@ public class OrderServlet extends HttpServlet {
         SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext (this);
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         String orderId = request.getParameter("orderId");
         try {
             OrderDTO orderDTO = mapper.map(orderService.changeOrderStatusToClose(Long.parseLong(orderId)), OrderDTO.class);
@@ -49,15 +49,15 @@ public class OrderServlet extends HttpServlet {
 
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
         HttpSession session = request.getSession();
         if (session.getAttribute("user") != null) {
             UserDTO sessionUser = (UserDTO)session.getAttribute("user");
-            // TODO: Сделать проверку для Админа
-            if (sessionUser.getRole() == UserRole.USER) {
-                List<OrderDTO> orders = orderService.findAllOrder().stream().map(product -> mapper.map(product, OrderDTO.class)).collect(Collectors.toList());
+            if (sessionUser.getRole() == UserRole.ADMIN) {
+                List<OrderDTO> orders = orderService.findAllOrder().stream()
+                        .map(product -> mapper.map(product, OrderDTO.class))
+                        .collect(Collectors.toList());
                 request.setAttribute("orders", orders);
                 request.getRequestDispatcher("/order.jsp").forward(request, response);
                 return;

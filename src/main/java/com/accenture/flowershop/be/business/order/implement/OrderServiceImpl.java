@@ -28,6 +28,7 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderDAO orderDAO;
 
+    @Autowired
     private CustomerService customerService;
 
     @Autowired

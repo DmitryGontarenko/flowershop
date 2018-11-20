@@ -52,7 +52,6 @@ public class CartServlet extends HttpServlet {
                 doGet(request, response);
                 return;
             }
-
             userDTO.getCustomer().getCart().removeAllItem();
             response.sendRedirect("/order?id=" + orderDTO.getId());
 
