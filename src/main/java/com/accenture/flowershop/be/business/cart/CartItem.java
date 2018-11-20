@@ -3,6 +3,8 @@ package com.accenture.flowershop.be.business.cart;
 import com.accenture.flowershop.fe.dto.product.ProductDTO;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 /**
  * Предметы в корзине
@@ -29,6 +31,13 @@ public class CartItem {
      */
     public BigDecimal getCartItemTotal() {
         return product.getPrice().multiply(new BigDecimal(quantity));
+    }
+
+
+    public String getCartItemTotalRub() {
+        Locale loc = new Locale("ru", "RU");
+        NumberFormat formatter  = NumberFormat.getCurrencyInstance(loc);
+        return formatter.format(getCartItemTotal());
     }
 
     /**

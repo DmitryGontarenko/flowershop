@@ -79,8 +79,8 @@ public class Cart {
         // если предмет содержится в корзине, то увеличиваем его количетсов
         if(items.containsKey(newItem.getProduct().getId())) {
             CartItem item = items.get(newItem.getProduct().getId());
-        // иначе добавляем новый элемент в корзину
-        } else {
+            item.setQuantity(item.getQuantity() + 1);
+        } else { // иначе добавляем новый элемент в корзину
             items.put(newItem.getProduct().getId(), newItem);
             newItem.setDiscount(discount);
         }
@@ -90,12 +90,26 @@ public class Cart {
         calculateTotalCost();
     }
 
-    public void removeItem(CartItem cartItem) {
-        // TODO: realise method
+    public void removeItem(CartItem removeItem) {
+        if (items.containsKey(removeItem.getProduct().getId())) {
+            CartItem item = items.get(removeItem.getProduct().getId());
+            // Если в корзине количество предметов больше 1 то уменьшаем количество на 1
+            // Иначе удаляем предмет из корзины полностью
+            if (item.getQuantity() > 1) {
+                item.setQuantity(item.getQuantity() - 1);
+            } else {
+                items.remove(item.getProduct().getId());
+            }
+            // Подсчитываем количество и обную сумму после изменений
+            calculateTotalCost();
+            calculateCountItems();
+        }
     }
 
     public void removeAllItem() {
-        // TODO: realise method
+        items.clear();
+        total = new BigDecimal(0);
+        itemCount = 0;
     }
 
     public Map<Long, CartItem> getItems() {
@@ -133,4 +147,6 @@ public class Cart {
     public List<CartItem> getItemList() {
         return new ArrayList<CartItem>(items.values());
     }
+
+
 }

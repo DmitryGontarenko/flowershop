@@ -1,4 +1,4 @@
-var cart = {}; // массив товаров (local storage)
+var catalog = {}; // массив товаров (local storage)
 
 $(document).ready(function () {
     addToCart();
@@ -8,19 +8,20 @@ $(document).ready(function () {
 
     function addToCart() {
         var $addCartItemButtons = $('[role=addCartItem]');
+
         $addCartItemButtons.each(function () {
             var productId = $(this).attr('data-id');
             $(this).on('click', function () {
                 // если товар уже лежит в корзине, увеличиваем его кол-во
-                if (cart[productId] != undefined) {
-                    cart[productId]++;
+                if (catalog[productId] != undefined) {
+                    catalog[productId]++;
                 }
                 else {
-                    cart[productId] = 1;
+                    catalog[productId] = 1;
                 }
                 // JSON.stringify - преобразует в строку
-                localStorage.setItem('cart', JSON.stringify(cart))
-                console.log(cart)
+                localStorage.setItem('catalog', JSON.stringify(catalog))
+                console.log(catalog)
                 shopMiniCart(); // показать корзину (отрисовать заного при добавлении нового товара)
             })
         })
@@ -29,19 +30,19 @@ $(document).ready(function () {
     // проверка наличие корзины в localStorage;
     function checkCart() {
         // если в localStorage что то есть
-        if (localStorage.getItem('cart') != null) {
+        if (localStorage.getItem('catalog') != null) {
             // присвоить массиву (корзине) то, что вытащу из localStorage и преобразовать из строки в массив
-            cart = JSON.parse(localStorage.get('cart'));
+            catalog = JSON.parse(localStorage.get('catalog'));
         }
     }
 
-    // показывает содержимое корзины 
+    // показывает содержимое корзины
     function shopMiniCart() {
         var out = '';
-        for (var w in cart) {
-            out += w + '---' + cart[w] + '<br>';
+        for (var w in catalog) {
+            out += w + '---' + catalog[w] + '<br>';
         }
-        $('#mini-cart').html(out);
+        $('#mini-catalog').html(out);
     }
 
 
