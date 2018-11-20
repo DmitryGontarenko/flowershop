@@ -5,6 +5,8 @@ import com.accenture.flowershop.be.business.cart.CartItem;
 import com.accenture.flowershop.be.business.customer.interfaces.CustomerService;
 import com.accenture.flowershop.be.business.order.exceptions.OrderException;
 import com.accenture.flowershop.be.business.order.interfaces.OrderService;
+import com.accenture.flowershop.be.business.product.exceptions.ProductException;
+import com.accenture.flowershop.be.business.product.interfaces.ProductService;
 import com.accenture.flowershop.be.entity.order.Order;
 import com.accenture.flowershop.be.entity.orderproduct.OrderProduct;
 import com.accenture.flowershop.be.entity.product.Product;
@@ -30,6 +32,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private CustomerService customerService;
+
+    @Autowired
+    private ProductService productService;
 
     @Autowired
     private Mapper mapper;
@@ -81,20 +86,38 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Order changeOrderStatusToPaid(Long orderId) throws OrderException {
         // TODO: Сделать изменение для числа продуктов при оплате
+        StringBuilder errors = new StringBuilder();
         Order order = orderDAO.findById(orderId);
-        // Устанавливаем статус заказу - ОПЛАЧЕН
-        order.setStatus(OrderStatus.PAID);
-        // Баланс пользователя = баланс пользователя - сумма заказа
-        order.getCustomer().setBalance(
-                order.getCustomer().getBalance().subtract(order.getTotal()));
-        // Устанавливаем новую дату обновления заказа
-        order.setUpdatedAt(new Date());
+        // Изменяем число "в наличии"(stock) у продуктов c помощью метода changeProductQuantityInStock
+        for (OrderProduct orderProduct : order.getOrderProducts()) {
+            try {
+                productService.changeProductQuantityInStock(
+                        orderProduct.getProduct().getId(), orderProduct.getQuantity());
+            } catch (Exception e) {
+                errors.append(e.getMessage()).append("<br/>");
+            }
+        }
+        // TODO: запретить оплату с суммой меньшей, чем сумма корзины
+        // Если ошибок не возникло, снимаем деньги с покупателя и меняем заказ в PAID (Оплачен)
+        // Иначе показываем ошибку, что требуемого количества продуктов недостаточно
+        if(errors.toString().isEmpty()) {
+            // Устанавливаем статус заказу - ОПЛАЧЕН
+            order.setStatus(OrderStatus.PAID);
+            // Баланс пользователя = баланс пользователя - сумма заказа
+            order.getCustomer().setBalance(
+                    order.getCustomer().getBalance().subtract(order.getTotal()));
+            // Устанавливаем новую дату обновления заказа
+            order.setUpdatedAt(new Date());
 
-        log.debug("Order with id = {} changed status to {}",
-                order.getId(), order.getCustomer());
+            log.debug("Order with id = {} changed status to {}",
+                    order.getId(), order.getCustomer());
 
-        order = saveOrder(order);
-        return order;
+            order = saveOrder(order);
+            return order;
+        } else {
+            throw new OrderException(errors.toString());
+        }
+
     }
 
     @Transactional

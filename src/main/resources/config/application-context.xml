@@ -38,11 +38,6 @@
     <jee:jndi-lookup id="outQueue" jndi-name="jms/outQueue"/>
     <jee:jndi-lookup id="inQueue" jndi-name="jms/inQueue"/>
 
-    <!--<jee:jndi-lookup id="connectionFactory" jndi-name="jms/connectionFactory"/>-->
-    <!--<jee:jndi-lookup id="esbToMcpRequestQueue" jndi-name="jms/queue/mainQueue"/>-->
-
-
-
     <!--Database migration automation (Flyway)-->
     <bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate">
         <property name="dataSource" ref="dataSource"/>

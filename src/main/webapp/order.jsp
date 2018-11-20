@@ -1,12 +1,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+    <link href="style.css" rel="stylesheet" type="text/css">  
 <head>
     <title>Title</title>
 </head>
 <body>
     <c:forEach var="order" items="${orders}">
-        <table border="1">
+        <table class="tstyle">
             <tr>
                 <th>Заказ</th>
                 <th>ФИО</th>
@@ -22,7 +23,7 @@
                 <td>${order.status}</td>
                 <td>${order.createdAt}</td>
                 <td>${order.updatedAt}</td>
-                <td>
+                <td style="width: 250px;">
                     <%--Поменять с CRATED на PAID--%>
                     <c:if test="${order.status == 'CREATED'}">
                         <form method = "post" action="order">

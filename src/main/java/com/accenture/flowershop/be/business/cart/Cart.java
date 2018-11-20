@@ -144,6 +144,12 @@ public class Cart {
         return total;
     }
 
+    public String getTotalRub() {
+        Locale loc = new Locale("ru", "RU");
+        NumberFormat formatter = NumberFormat.getCurrencyInstance(loc);
+        return formatter.format(total);
+    }
+
     public List<CartItem> getItemList() {
         return new ArrayList<CartItem>(items.values());
     }

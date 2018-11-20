@@ -2,6 +2,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <link href="style.css" rel="stylesheet" type="text/css"> 
     <title>Title</title>
 </head>
 <body>
@@ -10,7 +11,7 @@
     <script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
 
     <h3>Cart</h3>
-
+<div class="cartgoods">
     <%--КОРЗИНА ПОЛЬЗОВАТЕЛЯ--%>
     <table class="table" id="orderProductsCart" border-collapse="1">
         <thead>
@@ -28,7 +29,7 @@
                     <th>Стоимость</th>
                     <th>Стоимость со скидкой</th>
                 </tr>
-                <tr data-id = "${cartItem.product.id}">
+                <tr class ="cartbutton" data-id = "${cartItem.product.id}">
                     <td class="ciProductName">${cartItem.product.name}</td>
                     <td>
                         <button role="removeCartItem" data-id="${cartItem.product.id}">-</button>
@@ -41,7 +42,8 @@
             </c:forEach>
         </tbody>
     </table>
-
+</div>
+  <div class="user">
     <%--ИНФОРМАЦИЯ О ПОЛЬЗОВАТЕЛЕ--%>
         <form method="post" action="cart" id="orderForm">
             <input type="text" id="firstName" value="${sessionScope.user.customer.firstName}" placeholder="Enter your name">
@@ -54,5 +56,6 @@
             <button type="submit">Confirm</button>
 
         </form>
+  </div>
 </body>
 </html>

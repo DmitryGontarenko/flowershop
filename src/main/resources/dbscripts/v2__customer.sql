@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS tb_customer (
   balance DECIMAL(8, 2),
   discount INT,
   phone_number VARCHAR(255),
+  street VARCHAR(255),
   city VARCHAR(255),
   country VARCHAR(255),
   user_id INT
