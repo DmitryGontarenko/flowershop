@@ -54,7 +54,7 @@ public class CartServlet extends HttpServlet {
             }
 
             userDTO.getCustomer().getCart().removeAllItem();
-            response.sendRedirect("/order?id=" + orderDTO.getId());
+            response.sendRedirect("/view?id=" + orderDTO.getId());
 
         } else {
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED); //401

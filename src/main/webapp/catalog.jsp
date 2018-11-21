@@ -11,7 +11,7 @@
     <script src="/js/new_catalog.js"></script>
     <script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
 
-
+    <%--TODO: Сделать поиск--%>
     
     <%--ВЫВОД СПИСКА ТОВАРОВ--%>
     <div class="CartGoods">

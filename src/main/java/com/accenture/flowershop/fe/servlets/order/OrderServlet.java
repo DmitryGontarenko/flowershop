@@ -38,8 +38,7 @@ public class OrderServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String orderId = request.getParameter("orderId");
         try {
-            // TODO: Закрытие заказа
-            OrderDTO orderDTO = mapper.map(orderService.changeOrderStatusToPaid(Long.parseLong(orderId)), OrderDTO.class);
+            OrderDTO orderDTO = mapper.map(orderService.changeOrderStatusToClose(Long.parseLong(orderId)), OrderDTO.class);
             request.setAttribute("orders", orderDTO);
             doGet(request, response);
         } catch (OrderException ex) {

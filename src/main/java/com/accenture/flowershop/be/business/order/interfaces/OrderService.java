@@ -3,6 +3,7 @@ package com.accenture.flowershop.be.business.order.interfaces;
 import com.accenture.flowershop.be.business.order.exceptions.OrderException;
 import com.accenture.flowershop.be.entity.order.Order;
 import com.accenture.flowershop.fe.dto.order.OrderFormDTO;
+import org.codehaus.jackson.map.util.ArrayBuilders;
 
 import java.util.List;
 
@@ -19,4 +20,6 @@ public interface OrderService {
     Order changeOrderStatusToPaid(Long orderId) throws OrderException;
 
     Order changeOrderStatusToClose(Long orderId) throws OrderException;
+
+    Boolean orderBelongToUser(Long orderId, Long userId);
 }

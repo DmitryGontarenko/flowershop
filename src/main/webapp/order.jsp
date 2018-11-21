@@ -24,8 +24,8 @@
                 <td>${order.createdAt}</td>
                 <td>${order.updatedAt}</td>
                 <td style="width: 250px;">
-                    <%--Поменять с CRATED на PAID--%>
-                    <c:if test="${order.status == 'CREATED'}">
+                    <%--Если заказ оплачен - его можно закрыть--%>
+                    <c:if test="${order.status == 'PAID'}">
                         <form method = "post" action="order">
                             <input type="hidden" name="orderId" value="${order.id}">
                             <button type="submit">Закрыть</button>

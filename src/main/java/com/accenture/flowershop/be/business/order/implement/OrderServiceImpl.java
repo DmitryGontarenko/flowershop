@@ -85,7 +85,6 @@ public class OrderServiceImpl implements OrderService {
     @Transactional
     @Override
     public Order changeOrderStatusToPaid(Long orderId) throws OrderException {
-        // TODO: Сделать изменение для числа продуктов при оплате
         StringBuilder errors = new StringBuilder();
         Order order = orderDAO.findById(orderId);
         // Изменяем число "в наличии"(stock) у продуктов c помощью метода changeProductQuantityInStock
@@ -135,5 +134,11 @@ public class OrderServiceImpl implements OrderService {
         order = saveOrder(order);
         return order;
 
+    }
+
+    @Override
+    public Boolean orderBelongToUser(Long orderId, Long userId) {
+        Order order = orderDAO.findById(orderId);
+        return order.getCustomer().getUser().getId() == userId;
     }
 }
