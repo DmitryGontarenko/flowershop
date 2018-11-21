@@ -14,7 +14,9 @@ import java.util.Date;
         @NamedQuery(name = "Product.findByName",
                 query = "SELECT p FROM Product p WHERE p.name = :name"),
         @NamedQuery(name = "Product.findByPrice",
-                query = "SELECT p FROM Product p WHERE p.price = :price")
+                query = "SELECT p FROM Product p WHERE p.price = :price"),
+        @NamedQuery(name = "Product.findByPartName",
+                query = "SELECT p FROM Product p WHERE p.name LIKE :productName")
 })
 public class Product {
 

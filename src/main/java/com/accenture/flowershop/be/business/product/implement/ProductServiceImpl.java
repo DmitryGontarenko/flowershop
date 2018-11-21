@@ -6,6 +6,7 @@ import com.accenture.flowershop.be.entity.product.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.function.Predicate;
@@ -25,8 +26,23 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> findProductByName(String productName) {
+    public List<Product> findProductByPartName(String productName) {
+        if(productName != null && !productName.isEmpty()) {
+            // Меняем кодировку для отображения товаров на русском языке
+            try {
+                byte etext[] = productName.getBytes("ISO-8859-1");
+                productName = new String(etext, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+        }
 
+        List<Product> products = productDAO.findByPartName(productName);
+        return products.stream().filter(product -> product.getInStock() > 0).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Product> findProductByName(String productName) {
         List<Product> products = productDAO.findByName(productName);
         return products.stream().filter(product -> product.getInStock() > 0 ).collect(Collectors.toList());
     }

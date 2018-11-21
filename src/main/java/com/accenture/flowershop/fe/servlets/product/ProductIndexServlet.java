@@ -37,9 +37,24 @@ public class ProductIndexServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         List<ProductDTO> productDTOS = null;
 
-        productDTOS = productService.findAllProduct().stream().map(product -> mapper.map(product, ProductDTO.class)).collect(Collectors.toList());
+        // присваивает переменной productName значение параметра Input на странице catalog
+        String productName = request.getParameter("productName");
+
+        if (productName == null) {
+            productDTOS = productService
+                    .findAllProduct()
+                    .stream().map(product -> mapper.map(product, ProductDTO.class))
+                    .collect(Collectors.toList());
+        }
+        else {
+            productDTOS = productService
+                    .findProductByPartName(productName)
+                    .stream().map(product -> mapper.map(product, ProductDTO.class))
+                    .collect(Collectors.toList());
+        }
 
         request.setAttribute("productlist", productDTOS);
         request.getRequestDispatcher("/catalog.jsp").forward(request, response);

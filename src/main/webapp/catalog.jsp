@@ -12,7 +12,11 @@
     <script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
 
     <%--TODO: Сделать поиск--%>
-    
+    <form method="get" action="/catalog">
+        <input type="text" name="productName" id="productName" placeholder="Поиск">
+        <button type="submit">Поиск</button>
+    </form>
+
     <%--ВЫВОД СПИСКА ТОВАРОВ--%>
     <div class="CartGoods">
     <c:forEach var="product" items="${productlist}">

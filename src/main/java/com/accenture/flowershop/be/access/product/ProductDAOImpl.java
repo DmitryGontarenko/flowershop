@@ -62,6 +62,21 @@ public class ProductDAOImpl implements ProductDAO {
         return products;
     }
 
+    @Override
+    public List<Product> findByPartName(String productName) {
+        List<Product> products = null;
+        try {
+            TypedQuery<Product> query =
+                    entityManager.createNamedQuery("Product.findByPartName", Product.class)
+                            .setParameter("productName", "%" + productName + "%");
+            products = query.getResultList();
+        } catch (NoResultException ex) {
+            products = Collections.emptyList();
+        }
+        return products;
+
+    }
+
 
     @Override
     public List<Product> findByPrice(BigDecimal price) {

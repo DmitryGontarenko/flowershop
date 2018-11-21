@@ -15,6 +15,10 @@ public class ProductDTO {
     public ProductDTO() {
     }
 
+    public ProductDTO(String name) {
+        this.name = name;
+    }
+
     public ProductDTO(long id, String name, BigDecimal price, int inStock, Date createdAt, Date updateAt) {
         this.id = id;
         this.name = name;

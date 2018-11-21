@@ -14,6 +14,8 @@ public interface ProductDAO {
 
     List<Product> findByName(String name);
 
+    List<Product> findByPartName(String productName);
+
     List<Product> findByPrice(BigDecimal price);
 
     Long save(Product product);
