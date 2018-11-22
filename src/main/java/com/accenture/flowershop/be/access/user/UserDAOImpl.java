@@ -70,11 +70,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public void update(User user) {
-//        entityManager.merge(user);
+        entityManager.merge(user);
     }
 
-    @Override
-    public void delete(long userId) {
-
-    }
 }

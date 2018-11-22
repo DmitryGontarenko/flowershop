@@ -103,9 +103,4 @@ public class ProductDAOImpl implements ProductDAO {
     public void update(Product product) {
         entityManager.merge(product);
     }
-
-    @Override
-    public void delete(Product product) {
-
-    }
 }

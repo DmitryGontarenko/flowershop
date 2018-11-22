@@ -1,5 +1,8 @@
 package com.accenture.flowershop.fe.rs;
 
+/**
+ * REST Сервис для работы с Пользователем
+ */
 public interface UserCgService {
 
     /**

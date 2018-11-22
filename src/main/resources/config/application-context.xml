@@ -21,7 +21,6 @@
     <context:annotation-config/>
 
     <bean id="org.dozer.Mapper" class="org.dozer.DozerBeanMapper" />
-
     <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 
     <!--Transactions with Spring-->
@@ -29,7 +28,6 @@
         <property name="entityManagerFactory" ref="entityManagerFactory" />
     </bean>
     <tx:annotation-driven transaction-manager="transactionManager"/>
-
 
     <!--JPA with Spring – Data source-->
     <jee:jndi-lookup id="dataSource" jndi-name="jdbc/flowerShopDS"/>
@@ -81,13 +79,10 @@
         </property>
     </bean>
 
-    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
-
     <!--XML Converter-->
     <bean id="XMLConverter" class="org.springframework.oxm.castor.CastorMarshaller">
         <property name="targetClasses">
             <list>
-                <!--<value>com.accenture.flowershop.be.business.user.implement.UserMarshallingServiceImpl</value>-->
                 <value>com.accenture.flowershop.be.business.customer.implement.CustomerDiscount</value>
             </list>
         </property>

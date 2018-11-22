@@ -9,5 +9,8 @@
         <module name="oktflowershop" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="oktflowershop" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

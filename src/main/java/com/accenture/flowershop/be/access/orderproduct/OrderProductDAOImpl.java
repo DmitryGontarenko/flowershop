@@ -45,9 +45,4 @@ public class OrderProductDAOImpl implements OrderProductDAO {
         entityManager.persist(orderProduct);
         return orderProduct.getId();
     }
-
-    @Override
-    public void delete(long orderProduct) {
-
-    }
 }

@@ -6,19 +6,38 @@ import java.util.List;
 
 public interface UserDAO {
 
-    // возвращает полный список объектов User
+    /**
+     * Возвращает полный список объектов User
+     * @return Лист User
+     */
     List<User> findAll();
 
-    // возвращает конкретный экземпляр User по ID
+    /**
+     * Возвращает конкретный экземпляр User, представленный указанным ID
+     * @param userId ID Пользователя
+     * @return User объект
+     */
     User findById(long userId);
 
-    // возвращает конкретный экземпляр User по username
+    /**
+     * Возвращает конкретный экземпляр User, представленный указанным Именем
+     * @param username Логин Пользователя
+     * @return User
+     */
     User findByUsername(String username);
 
+    /**
+     * TODO: save
+     * @param user Объект Пользователя для вставки в репозиторий
+     * @return Идентификатор записи в репозитории
+     */
     Long save(User user);
 
+    /**
+     * Обновляет существующего Пользователя
+     * @param user Объект Пользователя
+     */
     void update(User user);
 
-    void delete(long userId);
 
 }

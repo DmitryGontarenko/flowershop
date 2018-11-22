@@ -90,6 +90,10 @@ public class Cart {
         calculateTotalCost();
     }
 
+    /**
+     * Этот метод удалит существующий предмет в корзине
+     * @param removeItem Существующий предмет в корзине
+     */
     public void removeItem(CartItem removeItem) {
         if (items.containsKey(removeItem.getProduct().getId())) {
             CartItem item = items.get(removeItem.getProduct().getId());
@@ -106,6 +110,9 @@ public class Cart {
         }
     }
 
+    /**
+     * Этот метод удалит все предметы из корзины
+     */
     public void removeAllItem() {
         items.clear();
         total = new BigDecimal(0);

@@ -32,13 +32,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public Long save(Customer customer) {
-//        entityManager.persist(customer);
-//        return customer.getId();
-        return null;
-    }
-
-    @Override
-    public void update(Customer customer) {
-        //entityManager.merge(customer);
+        entityManager.persist(customer);
+        return customer.getId();
     }
 }

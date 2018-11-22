@@ -4,10 +4,23 @@ import com.accenture.flowershop.be.business.customer.exceptions.CustomerExceptio
 import com.accenture.flowershop.be.business.customer.implement.CustomerDiscount;
 import com.accenture.flowershop.be.entity.customer.Customer;
 
+/**
+ * Сервис для взаимодествия с Покупателями
+ */
 public interface CustomerService {
 
+    /**
+     * Этот метод найдет покупателя, которому соотвествует указанный Id
+     * @param customerId Id Покупателя
+     * @return Объект Покупателя
+     */
     Customer findCustomerById(long customerId);
 
+    /**
+     * Этот метод изменяет у существуюего покупателя его скидку
+     * Объект CustomerDiscount состоит из полей - id покупателя и новая скидка
+     * @param customerDiscount Объект CustomerDiscount
+     */
     void changeCustomerDiscount(CustomerDiscount customerDiscount) throws CustomerException;
 
 

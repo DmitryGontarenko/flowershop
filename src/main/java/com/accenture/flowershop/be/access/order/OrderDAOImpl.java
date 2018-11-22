@@ -55,8 +55,4 @@ public class OrderDAOImpl implements OrderDAO {
         entityManager.merge(order);
     }
 
-    @Override
-    public void delete(long orderId) {
-
-    }
 }
