@@ -1,11 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-    <link href="style.css" rel="stylesheet" type="text/css">  
-<head>
-    <title>Title</title>
-</head>
-<body>
+<%@taglib prefix="w" tagdir="/WEB-INF/tags" %>
+
+<w:wrapper>
     <c:forEach var="order" items="${orders}">
         <table class="tstyle">
             <tr>
@@ -24,7 +21,7 @@
                 <td>${order.createdAt}</td>
                 <td>${order.updatedAt}</td>
                 <td style="width: 250px;">
-                    <%--Если заказ оплачен - его можно закрыть--%>
+                        <%--Если заказ оплачен - его можно закрыть--%>
                     <c:if test="${order.status == 'PAID'}">
                         <form method = "post" action="order">
                             <input type="hidden" name="orderId" value="${order.id}">
@@ -36,5 +33,4 @@
 
         </table>
     </c:forEach>
-</body>
-</html>
+</w:wrapper>

@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service("CustomerService")
 public class CustomerServiceImpl implements CustomerService {
@@ -23,6 +24,7 @@ public class CustomerServiceImpl implements CustomerService {
         return customerDAO.findById(customerId);
     }
 
+    @Transactional
     @Override
     public void changeCustomerDiscount(CustomerDiscount customerDiscount) throws CustomerException {
         Customer customer = customerDAO.findById(customerDiscount.getCustomerId());

@@ -24,15 +24,8 @@ public class CustomerDiscount {
         return customerId;
     }
 
-    public void setCustomerId(long customerId) {
-        this.customerId = customerId;
-    }
-
     public int getNewDiscount() {
         return newDiscount;
     }
 
-    public void setNewDiscount(int newDiscount) {
-        this.newDiscount = newDiscount;
-    }
 }

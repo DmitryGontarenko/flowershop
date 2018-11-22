@@ -1,27 +1,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
-<head>
-    <link href="style.css" rel="stylesheet" type="text/css"> 
-    <title>Title</title>
-</head>
-<body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="/js/new_catalog.js"></script>
-    <script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
+<%@taglib prefix="w" tagdir="/WEB-INF/tags" %>
 
+<w:wrapper>
     <h3>Cart</h3>
-<div class="cartgoods">
-    <%--КОРЗИНА ПОЛЬЗОВАТЕЛЯ--%>
-    <table class="table" id="orderProductsCart" border-collapse="1">
-        <thead>
+    <div class="cartgoods">
+            <%--КОРЗИНА ПОЛЬЗОВАТЕЛЯ--%>
+        <table class="table" id="orderProductsCart" border-collapse="1">
+            <thead>
             <tr>
                 <th>
                     <button role="removeAllCartItems">Удалить все</button>
                 </th>
             </tr>
-        </thead>
-        <tbody>
+            </thead>
+            <tbody>
             <c:forEach var="cartItem" items="${sessionScope.user.customer.cart.itemList}">
                 <tr>
                     <th>Наименование</th>
@@ -40,11 +33,11 @@
                     <td class="ciTotalDiscount">${cartItem.cartItemTotalDiscount}</td>
                 </tr>
             </c:forEach>
-        </tbody>
-    </table>
-</div>
-  <div class="user">
-    <%--ИНФОРМАЦИЯ О ПОЛЬЗОВАТЕЛЕ--%>
+            </tbody>
+        </table>
+    </div>
+    <div class="user">
+            <%--ИНФОРМАЦИЯ О ПОЛЬЗОВАТЕЛЕ--%>
         <form method="post" action="cart" id="orderForm">
             <input type="text" id="firstName" value="${sessionScope.user.customer.firstName}" placeholder="Enter your name">
             <input type="text" id="lastName" value="${sessionScope.user.customer.lastName}" placeholder="Enter your last name">
@@ -56,6 +49,5 @@
             <button type="submit">Confirm</button>
 
         </form>
-  </div>
-</body>
-</html>
+    </div>
+</w:wrapper>

@@ -2,6 +2,7 @@ package com.accenture.flowershop.fe.dto.orderproduct;
 
 import com.accenture.flowershop.fe.dto.order.OrderDTO;
 import com.accenture.flowershop.fe.dto.product.ProductDTO;
+import org.dozer.Mapping;
 
 public class OrderProductDTO {
 
