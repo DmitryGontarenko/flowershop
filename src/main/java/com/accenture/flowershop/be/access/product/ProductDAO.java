@@ -43,7 +43,7 @@ public interface ProductDAO {
     List<Product> findByPrice(BigDecimal price);
 
     /**
-     * TODO: save
+     * Сохраняет продукт
      * @param product Объект Продукта
      * @return Идентификатор записи
      */

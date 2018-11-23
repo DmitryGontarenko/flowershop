@@ -20,7 +20,7 @@ public interface OrderProductDAO {
     OrderProduct findById(long orderProductId);
 
     /**
-     * TODO: save
+     * Сохраняет сохраняет информацию о заказе
      * @param orderProduct Объект OrderProduct
      * @return Идентификатор записи
      */

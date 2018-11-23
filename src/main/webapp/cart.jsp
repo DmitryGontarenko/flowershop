@@ -48,6 +48,12 @@
 
             <button type="submit">Confirm</button>
 
+            <c:if test="${error != null}">
+                <div class="my-lg-4 alert alert-danger" role="alert">
+                        ${error}
+                </div>
+            </c:if>
+
         </form>
     </div>
 </w:wrapper>

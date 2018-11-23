@@ -55,25 +55,32 @@ public class OrderServiceImpl implements OrderService {
     @Transactional
     @Override
     public Order createOrder(OrderFormDTO orderFormDTO) throws OrderException {
+        // Сравниваем баланс и сумму корзины, если денег у покупателя
+        // недостаточно, выкидываем ошибку
+        if (customerService.findCustomerById(orderFormDTO.getCustomerId()).getBalance()
+                            .compareTo(orderFormDTO.getCart().getTotal()) < 0) {
+            throw new OrderException("Недостаточно средств для оформления заказа");
+        } else {
+            Order order = new Order();
+            order.setTotal(orderFormDTO.getCart().getTotal()); // Общая стоимость корзины
+            order.setStatus(OrderStatus.CREATED); // Устанавливаем статус - СОЗДАН
+            order.setCreatedAt(new Date()); // Устанавливаем текущую дату
+            order.setCustomer(customerService.findCustomerById(orderFormDTO.getCustomerId())); // Устаналиваем Id покупателя
 
-        Order order = new Order();
-        order.setTotal(orderFormDTO.getCart().getTotal());
-        order.setStatus(OrderStatus.CREATED);
-        order.setCreatedAt(new Date());
-        order.setCustomer(customerService.findCustomerById(orderFormDTO.getCustomerId()));
+            List<OrderProduct> orderProducts = new ArrayList<>();
+            for (CartItem cartItem : orderFormDTO.getCart().getItemList()) { // Циклом ищем продукты в корзине
+                Product product = mapper.map(cartItem.getProduct(), Product.class); // Сопоставляем сущность с продуктами в корзине
+                orderProducts.add(new OrderProduct(product, order, cartItem.getQuantity())); // добавляем в лист новый заказ
+            }
+            order.setOrderProducts(orderProducts);
+            order = saveOrder(order);
 
-        List<OrderProduct> orderProducts = new ArrayList<>();
-        for (CartItem cartItem : orderFormDTO.getCart().getItemList()) {
-            Product product = mapper.map(cartItem.getProduct(), Product.class);
-            orderProducts.add(new OrderProduct(product, order, cartItem.getQuantity()));
+            log.debug("Order with id = {} was created. Total sum = {}",
+                    order.getId(), order.getTotal());
+
+            return order;
         }
-        order.setOrderProducts(orderProducts);
-        order = saveOrder(order);
 
-        log.debug("Order with id = {} was created. Total sum = {}",
-                order.getId(), order.getTotal());
-
-        return order;
     }
 
     @Override
@@ -96,7 +103,6 @@ public class OrderServiceImpl implements OrderService {
                 errors.append(e.getMessage()).append("<br/>");
             }
         }
-        // TODO: запретить оплату с суммой меньшей, чем сумма корзины
         // Если ошибок не возникло, снимаем деньги с покупателя и меняем заказ в PAID (Оплачен)
         // Иначе показываем ошибку, что требуемого количества продуктов недостаточно
         if(errors.toString().isEmpty()) {

@@ -27,7 +27,7 @@ public interface UserDAO {
     User findByUsername(String username);
 
     /**
-     * TODO: save
+     * Сохраняет пользователя
      * @param user Объект Пользователя для вставки в репозиторий
      * @return Идентификатор записи в репозитории
      */

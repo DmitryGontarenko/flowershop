@@ -1,8 +1,6 @@
 package com.accenture.flowershop.fe.servlets.product;
 
 import com.accenture.flowershop.be.business.product.interfaces.ProductService;
-import com.accenture.flowershop.be.business.product.search.ProductSearch;
-import com.accenture.flowershop.be.entity.product.Product;
 import com.accenture.flowershop.fe.dto.product.ProductDTO;
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;

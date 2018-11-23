@@ -13,7 +13,7 @@ public interface CustomerDAO {
     Customer findById(long customerId);
 
     /**
-     * TODO: save
+     * Сохраняет пользователя
      * @param customer Объект Customer
      * @return Идентификатор записи
      */
